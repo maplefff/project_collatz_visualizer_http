@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collatz Icon Concepts</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; background-color: #f4f4f4; }
+        .container { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 20px; }
+        .icon-card { background-color: white; border-radius: 8px; padding: 15px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .icon-display { width: 100px; height: 100px; margin: 10px auto; border: 1px solid #ddd; display: flex; justify-content: center; align-items: center; font-size: 40px; position: relative; overflow: hidden; background-color: #eee; }
+        .icon-card h3 { margin-top: 0; font-size: 1em; }
+        /* Icon Styles */
+        .icon-1 { font-weight: bold; color: #3498db; } /* Simple Number */
+        .icon-2 { font-family: monospace; color: #2ecc71; display: flex; flex-direction: column; font-size: 24px; line-height: 1.2; } /* 3n+1 Text */
+        .icon-3 { color: #e74c3c; } /* Up Arrow */
+        .icon-4 { color: #f39c12; transform: rotate(90deg); } /* Down Arrow (sideways) */
+        .icon-5 { /* Simple Tree/Graph */
+            width: 0; height: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-bottom: 50px solid #9b59b6;
+            position: relative;
+        }
+        .icon-5::after {
+            content: ''; position: absolute;
+            width: 10px; height: 30px; background: #9b59b6;
+            bottom: -80px; left: 50%; transform: translateX(-50%);
+        }
+        .icon-6 { /* Abstract Spiral */
+             border: 5px solid #1abc9c; border-radius: 50%; border-top-color: transparent;
+             width: 60px; height: 60px; animation: spin 1s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .icon-7 { background: linear-gradient(45deg, #3498db, #9b59b6); color: white; font-weight: bold; } /* Gradient Number */
+        .icon-8 { /* Connected Dots */
+             display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 50px; height: 50px;
+        }
+        .icon-8 span { width: 15px; height: 15px; background: #e67e22; border-radius: 50%; }
+        /* Line would need SVG or Canvas for accuracy */
+        .icon-9 { /* Binary Tree Branch */
+            width: 6px; height: 40px; background: #34495e; position: relative; transform: translateY(-20px);
+        }
+        .icon-9::before, .icon-9::after {
+             content: ''; position: absolute; width: 6px; height: 30px; background: #34495e; top: 15px;
+        }
+        .icon-9::before { left: -15px; transform: rotate(-45deg); }
+        .icon-9::after { right: -15px; transform: rotate(45deg); }
+         .icon-10 { font-size: 30px; color: #7f8c8d; } /* Question Mark (Mystery) */
+    </style>
+</head>
+<body>
+    <h1>Collatz Visualizer - Icon Concepts</h1>
+    <p>Right-click (or use snipping tool) on a display area below to save an image concept.</p>
+    <div class="container">
+        <div class="icon-card">
+            <h3>1. Simple Number</h3>
+            <div class="icon-display icon-1">42</div>
+        </div>
+        <div class="icon-card">
+            <h3>2. Formula</h3>
+            <div class="icon-display icon-2"><span>3n</span><span>+1</span></div>
+        </div>
+        <div class="icon-card">
+            <h3>3. Upward Trend</h3>
+            <div class="icon-display icon-3">↑</div>
+        </div>
+        <div class="icon-card">
+            <h3>4. Downward Trend</h3>
+            <div class="icon-display icon-4">→</div>
+        </div>
+         <div class="icon-card">
+            <h3>5. Simple Tree</h3>
+            <div class="icon-display"><div class="icon-5"></div></div>
+        </div>
+         <div class="icon-card">
+            <h3>6. Abstract Cycle</h3>
+            <div class="icon-display"><div class="icon-6"></div></div>
+        </div>
+        <div class="icon-card">
+            <h3>7. Gradient Number</h3>
+            <div class="icon-display icon-7">1</div>
+        </div>
+        <div class="icon-card">
+            <h3>8. Connected Steps</h3>
+            <div class="icon-display">
+                <div class="icon-8"><span></span><span></span><span></span><span></span></div>
+            </div>
+        </div>
+         <div class="icon-card">
+            <h3>9. Branching Path</h3>
+            <div class="icon-display"><div class="icon-9"></div></div>
+        </div>
+        <div class="icon-card">
+            <h3>10. The Mystery</h3>
+            <div class="icon-display icon-10">?</div>
+        </div>
+    </div>
+</body>
+</html> 

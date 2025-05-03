@@ -1,0 +1,28 @@
+/* Add some basic global styles if needed */
+body {
+  font-family: sans-serif;
+  margin: 20px;
+  background-color: #ffffff;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Add dark mode styles for body based on class applied in App.vue */
+/* We rely on the class being applied to a container *inside* body, */
+/* so we might need a different approach if #app doesn't fill body */
+/* A better approach is to add the class to body itself if possible, */
+/* but that requires more complex interaction. */
+/* For now, let's target body based on the .dark-mode class on #app's child */
+
+/* Let's try a simpler approach: use prefers-color-scheme directly */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+  }
+}
+
+#app {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+} 

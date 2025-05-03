@@ -1,0 +1,58 @@
+{
+  "name": "collatz-visualizer-http",
+  "version": "1.0.0",
+  "main": "backend/main.js",
+  "scripts": {
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "electron backend/main.js",
+    "dev": "concurrently \"npm:dev:frontend\" \"npm:dev:backend\"",
+    "build:frontend": "cd frontend && npm run build",
+    "build:electron": "npm run build:frontend && electron-builder",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "build": {
+    "appId": "com.example.collatzvisualizer",
+    "productName": "Collatz Visualizer",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "**/*",
+      "!frontend/**/*",
+      "frontend/dist/**/*",
+      "backend/**/*",
+      "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+      "!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}",
+      "!**/node_modules/*.d.ts",
+      "!**/node_modules/.bin",
+      "!**/*.{iml,o,hprof,orig,pyc,pyo,rbc,swp,csproj,sln,xproj}",
+      "!.editorconfig",
+      "!**/._*",
+      "!**/{.DS_Store,.git,.hg,.svn,CVS,RCS,SCCS,.idea,.vscode,__pycache__,thumbs.db,.gitignore,.gitattributes,.flowconfig,.yarn-metadata.json,.yarn-integrity}"
+    ],
+    "extraResources": [],
+    "mac": {
+      "target": "dmg",
+      "icon": "build/collatz_icon.icns"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.png"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "build/icon.png"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "electron": "^35.2.1",
+    "electron-builder": "^26.0.12"
+  },
+  "dependencies": {}
+}

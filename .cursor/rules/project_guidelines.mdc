@@ -1,0 +1,39 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Project Structure and Guidelines
+
+This project is an Electron application visualizing the Collatz conjecture, structured with a separate frontend and backend.
+
+## Key Directories
+
+*   **Project Core(父目錄):** `/Users/wu_cheng_yan/cursor/project_collatz_visualizer_http/` - Contains the main project setup and related documentation.
+    *   `[README.md](mdc:README.md)`: High-level overview of the project.
+*   **Application Core(根目錄, 專案根目錄) (`collatz_visualizer_http/`)**: Contains the Electron application itself.
+    *   `[collatz_visualizer_http/package.json](mdc:collatz_visualizer_http/package.json)`: Defines main dependencies (like Electron) and scripts for the application.
+    *   **Backend (`collatz_visualizer_http/backend/`)**: Node.js/Express backend running in the Electron main process.
+        *   **Entry Point:** `[collatz_visualizer_http/backend/main.js](mdc:collatz_visualizer_http/backend/main.js)` is the main entry point for the Electron application.
+        *   `[collatz_visualizer_http/backend/src/server.js](mdc:collatz_visualizer_http/backend/src/server.js)`: Defines the Express API server.
+    *   **Frontend (`collatz_visualizer_http/frontend/`)**: Vue.js/Vite frontend running in the Electron renderer process.
+        *   `[collatz_visualizer_http/frontend/src/App.vue](mdc:collatz_visualizer_http/frontend/src/App.vue)`: Main Vue component.
+
+## Important Rules
+
+*   **Project Root vs. Application Root:**
+    *   The "Parent Directory" (`/Users/wu_cheng_yan/cursor/project_collatz_visualizer_http/`) contains the entire project setup.
+    *   The "Application Root Directory" (`/Users/wu_cheng_yan/cursor/project_collatz_visualizer_http/collatz_visualizer_http/`) is where the Electron app code resides.
+*   **Absolute Paths Mandatory:** Always use **absolute paths** when creating files, changing directories (`cd`), excuete the command.
+*   **Verification Required:** Before executing any command involving file/directory creation, movement, or path specification, you **must** first use `pwd` to confirm the current working directory and `ls`, `find`, or `tree` to inspect the directory structure. Use `tree` to check the location before any operation.
+*   **Current Directory Context:** The "current directory" refers to the path where commands are executed (the terminal's current path).
+*   **Use Provided Paths:** File lists often provide absolute paths; use these directly for operations.
+
+## Development Notes
+
+*   The application uses `concurrently` to run backend (Electron main process) and frontend (Vite dev server) simultaneously during development (`npm run dev` in `collatz_visualizer_http/`).
+*   The frontend communicates with the backend via HTTP requests (e.g., using `axios`).
+
+
+
+
